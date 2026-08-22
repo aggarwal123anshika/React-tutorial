@@ -34,45 +34,63 @@
 // export default App;
 
 
+// function App() {
+//   const name = "Anshika Aggarwal";
+//   const userObj = {
+//     name : "anshu",
+//     email : "anshi@gmail.com",
+//     age : 20
+//   }
+//   const userArray = ['anshu', 'akshu'];
+//   let x = 10;
+//   let y = 20;
+//   function fruit() {
+//     return "Apple";
+//   }
+//   let path = "https://images.unsplash.com/photo-1600804340584-c7db2eacf0bf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHVwcHklMjBkb2dzfGVufDB8fDB8fHww";
+//   function sum(a, b) {
+//       return a - b;
+//   }
+//   function operation(a, b, op) {
+//     let result = 0;
+//     if(op == '+') {
+//         return a + b;
+//     } else if(op == '-') {
+//       return a - b;
+//     } else {
+//       return a * b;
+//     }
+//   }
+//   return (
+//     <>
+//       <h1>JSX with curly braces.</h1>
+//       <h1>My Name is : {name}</h1>
+//       <h1>Addition of two number is:{x + y}</h1>
+//       <h1>{fruit()}</h1>
+//       <h1>{sum(300,100)}</h1>
+//       <h1>{operation(20, 30, "")}</h1>
+//       <h1>{userObj.email}, {userObj.name}, {userObj.age}</h1>
+//       <h1>{userArray[1]}</h1>
+//       <input type="text" value={name}/>
+//       <img src={path}/>
+//     </>
+//   )
+// }
+// export default App;
+
+
 function App() {
-  const name = "Anshika Aggarwal";
-  const userObj = {
-    name : "anshu",
-    email : "anshi@gmail.com",
-    age : 20
+  function callFun() {
+    alert("function is called");
   }
-  const userArray = ['anshu', 'akshu'];
-  let x = 10;
-  let y = 20;
-  function fruit() {
-    return "Apple";
-  }
-  let path = "https://images.unsplash.com/photo-1600804340584-c7db2eacf0bf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHVwcHklMjBkb2dzfGVufDB8fDB8fHww";
-  function sum(a, b) {
-      return a - b;
-  }
-  function operation(a, b, op) {
-    let result = 0;
-    if(op == '+') {
-        return a + b;
-    } else if(op == '-') {
-      return a - b;
-    } else {
-      return a * b;
-    }
+  const fruit = (name) => {
+    alert(name);
   }
   return (
     <>
-      <h1>JSX with curly braces.</h1>
-      <h1>My Name is : {name}</h1>
-      <h1>Addition of two number is:{x + y}</h1>
-      <h1>{fruit()}</h1>
-      <h1>{sum(300,100)}</h1>
-      <h1>{operation(20, 30, "")}</h1>
-      <h1>{userObj.email}, {userObj.name}, {userObj.age}</h1>
-      <h1>{userArray[1]}</h1>
-      <input type="text" value={name}/>
-      <img src={path}/>
+      <h1>Event and Function call</h1>
+      <button onClick={callFun}>Click Me</button><br></br>
+      <button onClick={() => fruit("banana")}>banana</button>
     </>
   )
 }
