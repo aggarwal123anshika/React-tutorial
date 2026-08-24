@@ -20,6 +20,11 @@
 // }
 // export default App;
 
+import { useState } from "react";
+import College from "./College";
+import Props from "./Props";
+import Student from "./Student";
+
 // import Login,{Profile, Setting} from "./UserComponent";
 // function App() {
 //   return (
@@ -79,18 +84,68 @@
 // export default App;
 
 
+// function App() {
+//   function callFun() {
+//     alert("function is called");
+//   }
+//   const fruit = (name) => {
+//     alert(name);
+//   }
+//   return (
+//     <>
+//       <h1>Event and Function call</h1>
+//       <button onClick={callFun}>Click Me</button><br></br>
+//       <button onClick={() => fruit("banana")}>banana</button>
+//       <Props/>
+//     </>
+//   )
+// }
+// export default App;
+
+// import Props from "./Props";
+// function App() {
+  // let name = "Anshika Aggarwal";
+//   return (
+//     <>
+//       <h1>learning props in React js </h1>
+//       <Props name={"Anshu"} age={20}/>
+//     </>
+//   )
+// }
+// export default App
+
+// OR METHOD OF DECLARING PROPS
+
 function App() {
-  function callFun() {
-    alert("function is called");
+  // let userName = "Anshika Aggarwal";
+  // let age = 20;
+  let userObject = {
+    name : "Anshu",
+    age : "20"
   }
-  const fruit = (name) => {
-    alert(name);
+
+  let userObject1 = {
+    name : "Vanshu",
+    age : "90"
   }
+
+  let userObject2 = {
+    name : "Akshu",
+    age : "70"
+  }
+
+  let collegeNames = ['Rkgit', 'Ims', 'Kiet', 'Rd', 'IIt'];
+  const [student, setStudent] = useState("Anshi");
   return (
     <>
-      <h1>Event and Function call</h1>
-      <button onClick={callFun}>Click Me</button><br></br>
-      <button onClick={() => fruit("banana")}>banana</button>
+      <h1>props in react js</h1>
+      {/* <Props name={userName} age={age}/> */}
+       <Student name={student}/>
+      <College name={collegeNames[0]} />
+      <Props prop={userObject}/><hr></hr>
+      <Props prop={userObject1}/><hr></hr>
+      <Props prop={userObject2}/><hr></hr>
+      
     </>
   )
 }
