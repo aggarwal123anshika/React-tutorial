@@ -24,6 +24,7 @@ import { useState } from "react";
 import College from "./College";
 import Props from "./Props";
 import Student from "./Student";
+import Wrapper from "./Wrapper";
 
 // import Login,{Profile, Setting} from "./UserComponent";
 // function App() {
@@ -116,36 +117,53 @@ import Student from "./Student";
 
 // OR METHOD OF DECLARING PROPS
 
-function App() {
+// function App() {
   // let userName = "Anshika Aggarwal";
   // let age = 20;
-  let userObject = {
-    name : "Anshu",
-    age : "20"
-  }
+  // let userObject = {
+  //   name : "Anshu",
+  //   age : "20"
+  // }
 
-  let userObject1 = {
-    name : "Vanshu",
-    age : "90"
-  }
+  // let userObject1 = {
+  //   name : "Vanshu",
+  //   age : "90"
+  // }
 
-  let userObject2 = {
-    name : "Akshu",
-    age : "70"
-  }
+  // let userObject2 = {
+  //   name : "Akshu",
+  //   age : "70"
+  // }
 
-  let collegeNames = ['Rkgit', 'Ims', 'Kiet', 'Rd', 'IIt'];
-  const [student, setStudent] = useState("Anshi");
+  // let collegeNames = ['Rkgit', 'Ims', 'Kiet', 'Rd', 'IIt'];
+  // const [student, setStudent] = useState("Anshi");
+  // return (
+  //   <>
+  //     <h1>props in react js</h1>
+      {/* <Props name={userName} age={age}/> */}
+      //  <Student name={student}/>
+      // <College name={collegeNames[0]} />
+      // <Props prop={userObject}/><hr></hr>
+      // <Props prop={userObject1}/><hr></hr>
+      // <Props prop={userObject2}/><hr></hr>
+      
+//     </>
+//   )
+// }
+// export default App;
+
+
+function App() {
   return (
     <>
       <h1>props in react js</h1>
-      {/* <Props name={userName} age={age}/> */}
-       <Student name={student}/>
-      <College name={collegeNames[0]} />
-      <Props prop={userObject}/><hr></hr>
-      <Props prop={userObject1}/><hr></hr>
-      <Props prop={userObject2}/><hr></hr>
-      
+      <Wrapper color="orange">
+        <h1>Hello Everyone</h1>
+      </Wrapper>
+      <Wrapper>
+        <h1>Hello Anshika</h1>
+        <h2 style={{color : "blue"}}>Please login</h2>
+      </Wrapper>
     </>
   )
 }
