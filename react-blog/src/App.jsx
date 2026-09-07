@@ -170,14 +170,42 @@ import { useState } from "react";
 // export default App;
 
 
+// function App() {
+//   const [value,setValue] = useState("Anshika Aggarwal");
+//   return (
+//     <>
+//       <h1>Get Input field value</h1>
+//       <input type="text" onChange={(event) => setValue(event.target.value)} placeholder="Enter user name"/>
+//       <h1>{value}</h1>
+//       <button onClick={() => setValue("")}>Clear Value</button>
+//     </>
+//   )
+// }
+// export default App;
+
+// HANDLE CHECKBOX IN REACT
+
 function App() {
-  const [value,setValue] = useState("Anshika Aggarwal");
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
   return (
     <>
-      <h1>Get Input field value</h1>
-      <input type="text" onChange={(event) => setValue(event.target.value)} placeholder="Enter user name"/>
-      <h1>{value}</h1>
-      <button onClick={() => setValue("")}>Clear Value</button>
+      <h1>Controller Component</h1>
+      <form action="" method="get">
+        <input type="text" value={name} onChange={(event) => setName(event.target.value)} placeholder="Enter your Name"/>
+        <br /> <br /> 
+      <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Enter your password"/>
+        <br /> <br />
+      <input type="text" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Enter your Email"/>
+        <br /> <br />
+        <button>Submit</button>
+
+        <button onClick={() => {setEmail('');setName('');setPassword('');}}>Clear</button>
+        <h3>{name}</h3>
+        <h3>{password}</h3>
+        <h3>{email}</h3>
+      </form>
     </>
   )
 }
