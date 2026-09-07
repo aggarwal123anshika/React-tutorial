@@ -21,10 +21,10 @@
 // export default App;
 
 import { useState } from "react";
-import College from "./College";
-import Props from "./Props";
-import Student from "./Student";
-import Wrapper from "./Wrapper";
+// import College from "./College";
+// import Props from "./Props";
+// import Student from "./Student";
+// import Wrapper from "./Wrapper";
 
 // import Login,{Profile, Setting} from "./UserComponent";
 // function App() {
@@ -153,17 +153,31 @@ import Wrapper from "./Wrapper";
 // export default App;
 
 
+// function App() {
+//   return (
+//     <>
+//       <h1>props in react js</h1>
+//       <Wrapper color="orange">
+//         <h1>Hello Everyone</h1>
+//       </Wrapper>
+//       <Wrapper>
+//         <h1>Hello Anshika</h1>
+//         <h2 style={{color : "blue"}}>Please login</h2>
+//       </Wrapper>
+//     </>
+//   )
+// }
+// export default App;
+
+
 function App() {
+  const [value,setValue] = useState("Anshika Aggarwal");
   return (
     <>
-      <h1>props in react js</h1>
-      <Wrapper color="orange">
-        <h1>Hello Everyone</h1>
-      </Wrapper>
-      <Wrapper>
-        <h1>Hello Anshika</h1>
-        <h2 style={{color : "blue"}}>Please login</h2>
-      </Wrapper>
+      <h1>Get Input field value</h1>
+      <input type="text" onChange={(event) => setValue(event.target.value)} placeholder="Enter user name"/>
+      <h1>{value}</h1>
+      <button onClick={() => setValue("")}>Clear Value</button>
     </>
   )
 }
