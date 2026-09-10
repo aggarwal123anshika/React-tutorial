@@ -215,7 +215,7 @@ import Checkboxes from "./CheckBoxes";
 function App() {
   return (
     <div>
-      <h1>Handle CheckBox in React Js</h1>
+      {/* <h1>Handle CheckBox in React Js</h1> */}
       <Checkboxes />
     </div>
   )
