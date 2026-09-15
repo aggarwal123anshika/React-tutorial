@@ -20,8 +20,12 @@
 // }
 // export default App;
 
-import { useState } from "react";
-import Checkboxes from "./CheckBoxes";
+// import { useState } from "react";
+// import Clock from "./Clock";
+
+// import { useState } from "react";
+// import Checkboxes from "./CheckBoxes";
+// import Userr from "./Userr";
 // import College from "./College";
 // import Props from "./Props";
 // import Student from "./Student";
@@ -212,11 +216,147 @@ import Checkboxes from "./CheckBoxes";
 // }
 // export default App;
 
+// function App() {
+//   const userNames = ['anshu','vanshu','anshi','vanshi'];
+//   const userData = [
+//     {
+//       name : 'anshu',
+//       age : '20',
+//       email : 'anshu@gmail.com',
+//       id : 1
+//     },
+//     {
+//       name : 'vanshu',
+//       age : '22',
+//       email : 'vanshu@gmail.com',
+//       id : 1
+//     },
+//     {
+//       name : 'anshi',
+//       age : '21',
+//       email : 'anshi@gmail.com',
+//       id : 1
+//     },
+//     {
+//       name : 'vanshi',
+//       age : '23',
+//       email : 'vanshi@gmail.com',
+//       id : 1
+//     }
+//   ]
+//   return (
+//     <div>
+//       {/* <h1>Handle CheckBox in React Js</h1> */}
+//       {/* <Checkboxes /> */}
+//       {/* <h1>Loop in JSX with Map Function</h1> */}
+//       <h1>Reuse Component in Loop</h1>
+//       {userData.map((user) => (
+//         <Userr key={user.id} {...user} />
+//       ))}
+//       {/* <table border="1">
+//         <thead>
+//           <tr>
+//             <td>Id</td>
+//             <td>Name</td>
+//             <td>Age</td>
+//             <td>Email</td>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           {
+//             userData.map((user) => (
+//               <tr>
+//               <td>{user.id}</td>
+//               <td>{user.name}</td>
+//               <td>{user.age}</td>
+//               <td>{user.email}</td>
+//               </tr>
+//             ))
+//           }
+//         </tbody>
+
+//       </table> */}
+//       {/* <h1>Dummy Data</h1>
+//       <table border="1">
+//         <thead>
+//           <tr>
+//             <td>Id</td>
+//             <td>Name</td>
+//             <td>Age</td>
+//             <td>Email</td>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           <tr>
+//             <td>1</td>
+//             <td>Anshu</td>
+//             <td>20</td>
+//             <td>anshu@gmail.com</td>
+//           </tr>
+//           <tr>
+//             <td>1</td>
+//             <td>Anshu</td>
+//             <td>20</td>
+//             <td>anshu@gmail.com</td>
+//           </tr>
+//           <tr>
+//             <td>1</td>
+//             <td>Anshu</td>
+//             <td>20</td>
+//             <td>anshu@gmail.com</td>
+//           </tr>
+//           <tr>
+//             <td>1</td>
+//             <td>Anshu</td>
+//             <td>20</td>
+//             <td>anshu@gmail.com</td>
+//           </tr>
+//         </tbody>
+//       </table> */}
+//       <Clock />
+//     </div>
+//   )
+// }
+// export default App;
+
+
+// CLOCK CODE
+
+// import { useState } from "react";
+// import Clock from "./Clock";
+
+// function App() {
+//   const [color, setColor] = useState("green");
+
+//   return (
+//     <div>
+//       <h1>Digital Clock in React Js</h1>
+//       <select onChange={(event) => setColor(event.target.value)}>
+//         <option value="red">Red</option>
+//         <option value="blue">Blue</option>
+//         <option value="orange">Orange</option>
+//         <option value="green">Green</option>
+//       </select>
+//       {/* Pass color to Clock */}
+//       <Clock color={color} />
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
+
+// ARRAY NESTED LOOPING WITH COMPONENT
+
 function App() {
   return (
     <div>
-      {/* <h1>Handle CheckBox in React Js</h1> */}
-      <Checkboxes />
+      <h1></h1>
     </div>
   )
 }
