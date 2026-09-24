@@ -20,7 +20,8 @@
 // }
 // export default App;
 
-import Collegee from "./Collegee";
+import { useEffect, useState } from "react";
+// import Collegee from "./Collegee";
 
 // import { useState } from "react";
 // import Clock from "./Clock";
@@ -355,49 +356,80 @@ import Collegee from "./Collegee";
 
 // ARRAY NESTED LOOPING WITH COMPONENT
 
-function App() {
-  const collegeData = [
-    {
-      name: "IET Alwar",
-      city: "Alwar",
-      website: "www.iet.com",
-      student: [
-        { name: "Anshika", age: "20", email: "anshika@gmail.com" },
-        { name: "Vanshika", age: "22", email: "vanshika@gmail.com" },
-        { name: "Asha", age: "23", email: "asha@gmail.com" }
-      ]
-    },
-    {
-      name: "IIT Delhi",
-      city: "Delhi",
-      website: "www.iit.com",
-      student: [
-        { name: "Anshika", age: "20", email: "anshika@gmail.com" },
-        { name: "Vanshika", age: "22", email: "vanshika@gmail.com" },
-        { name: "Asha", age: "23", email: "asha@gmail.com" }
-      ]
-    },
-    {
-      name: "KCIET Nisar",
-      city: "Nisar",
-      website: "www.kciet.com",
-      student: [
-        { name: "Anshika", age: "20", email: "anshika@gmail.com" },
-        { name: "Vanshika", age: "22", email: "vanshika@gmail.com" },
-        { name: "Asha", age: "23", email: "asha@gmail.com" }
-      ]
-    }
-  ];
+// function App() {
+//   const collegeData = [
+//     {
+//       name: "IET Alwar",
+//       city: "Alwar",
+//       website: "www.iet.com",
+//       student: [
+//         { name: "Anshika", age: "20", email: "anshika@gmail.com" },
+//         { name: "Vanshika", age: "22", email: "vanshika@gmail.com" },
+//         { name: "Asha", age: "23", email: "asha@gmail.com" }
+//       ]
+//     },
+//     {
+//       name: "IIT Delhi",
+//       city: "Delhi",
+//       website: "www.iit.com",
+//       student: [
+//         { name: "Anshika", age: "20", email: "anshika@gmail.com" },
+//         { name: "Vanshika", age: "22", email: "vanshika@gmail.com" },
+//         { name: "Asha", age: "23", email: "asha@gmail.com" }
+//       ]
+//     },
+//     {
+//       name: "KCIET Nisar",
+//       city: "Nisar",
+//       website: "www.kciet.com",
+//       student: [
+//         { name: "Anshika", age: "20", email: "anshika@gmail.com" },
+//         { name: "Vanshika", age: "22", email: "vanshika@gmail.com" },
+//         { name: "Asha", age: "23", email: "asha@gmail.com" }
+//       ]
+//     }
+//   ];
 
+//   return (
+//     <div>
+//       {collegeData.map((college, index) => (
+//         <div key={index}>
+//           <Collegee college={college} />
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+//  HANDLE PROPS SIDE EFFECTS WITH USEEFFECT IN COMPONENT
+
+function App() {
+  const [counter, setCounter] = useState(0);
+  const [data, setData] = useState(0);
+  useEffect(() => {
+    // callOnce();
+    counterFunction();
+  },[counter])
+
+  
+  function counterFunction() {
+    console.log("counterFunction",counter);
+  }
+  function callOnce() {
+    console.log("callOnce function called");
+  }
+  
   return (
     <div>
-      {collegeData.map((college, index) => (
-        <div key={index}>
-          <Collegee college={college} />
-        </div>
-      ))}
+      <h1>useEffect Hook</h1>
+      <button onClick={() => setCounter(counter+1)}>Counter {counter}</button>
+      <button onClick={() => setData(data+1)}>Data {data}</button>
     </div>
-  );
+  ) 
 }
-
 export default App;
