@@ -21,6 +21,7 @@
 // export default App;
 
 import { useEffect, useState } from "react";
+import Counter from "./Counter";
 // import Collegee from "./Collegee";
 
 // import { useState } from "react";
@@ -408,28 +409,52 @@ import { useEffect, useState } from "react";
 
 //  HANDLE PROPS SIDE EFFECTS WITH USEEFFECT IN COMPONENT
 
-function App() {
-  const [counter, setCounter] = useState(0);
-  const [data, setData] = useState(0);
-  useEffect(() => {
-    // callOnce();
-    counterFunction();
-  },[counter])
+// function App() {
+//   const [counter, setCounter] = useState(0);
+//   const [data, setData] = useState(0);
+//   useEffect(() => {
+//     // callOnce();
+//     counterFunction();
+//   },[counter])
 
   
-  function counterFunction() {
-    console.log("counterFunction",counter);
-  }
-  function callOnce() {
-    console.log("callOnce function called");
-  }
+//   function counterFunction() {
+//     console.log("counterFunction",counter);
+//   }
+//   function callOnce() {
+//     console.log("callOnce function called");
+//   }
   
-  return (
+//   return (
+//     <div>
+//       <h1>useEffect Hook</h1>
+//       <button onClick={() => setCounter(counter+1)}>Counter {counter}</button>
+//       <button onClick={() => setData(data+1)}>Data {data}</button>
+//     </div>
+//   ) 
+// }
+// export default App;
+
+
+
+
+
+
+
+
+
+// USE EFFECT HOOK FOR LIFE CYCLE METHODS IN REACT JS
+
+function App() {
+  const [count,setCount] = useState(0);
+  const [data, setData] = useState(0);
+  return(
     <div>
-      <h1>useEffect Hook</h1>
-      <button onClick={() => setCounter(counter+1)}>Counter {counter}</button>
-      <button onClick={() => setData(data+1)}>Data {data}</button>
+      {/* <h1>Handle Props Side Effects with useEffect in component</h1> */}
+      <Counter count={count} data={data}/>
+      <button onClick={() => setCount(count+1) }>Counter</button>
+      <button onClick={() => setData(data+1) }>Data</button>
     </div>
-  ) 
+  )
 }
 export default App;
