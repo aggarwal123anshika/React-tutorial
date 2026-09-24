@@ -20,6 +20,8 @@
 // }
 // export default App;
 
+import Collegee from "./Collegee";
+
 // import { useState } from "react";
 // import Clock from "./Clock";
 
@@ -354,10 +356,48 @@
 // ARRAY NESTED LOOPING WITH COMPONENT
 
 function App() {
+  const collegeData = [
+    {
+      name: "IET Alwar",
+      city: "Alwar",
+      website: "www.iet.com",
+      student: [
+        { name: "Anshika", age: "20", email: "anshika@gmail.com" },
+        { name: "Vanshika", age: "22", email: "vanshika@gmail.com" },
+        { name: "Asha", age: "23", email: "asha@gmail.com" }
+      ]
+    },
+    {
+      name: "IIT Delhi",
+      city: "Delhi",
+      website: "www.iit.com",
+      student: [
+        { name: "Anshika", age: "20", email: "anshika@gmail.com" },
+        { name: "Vanshika", age: "22", email: "vanshika@gmail.com" },
+        { name: "Asha", age: "23", email: "asha@gmail.com" }
+      ]
+    },
+    {
+      name: "KCIET Nisar",
+      city: "Nisar",
+      website: "www.kciet.com",
+      student: [
+        { name: "Anshika", age: "20", email: "anshika@gmail.com" },
+        { name: "Vanshika", age: "22", email: "vanshika@gmail.com" },
+        { name: "Asha", age: "23", email: "asha@gmail.com" }
+      ]
+    }
+  ];
+
   return (
     <div>
-      <h1></h1>
+      {collegeData.map((college, index) => (
+        <div key={index}>
+          <Collegee college={college} />
+        </div>
+      ))}
     </div>
-  )
+  );
 }
+
 export default App;
