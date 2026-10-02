@@ -32,21 +32,33 @@ import { useEffect } from "react";
 // USE EFFECT HOOK FOR LIFE CYCLE METHODS IN REACT JS
 
 const Counter = ({count, data}) => {
-    const handleCounter = () => {
-        console.log("handleCounter called");
-    }
-    const handleData = () => {
-        console.log("handleData called");
-    }
+    // const handleCounter = () => {
+    //     console.log("handleCounter called");
+    // }
+    // const handleData = () => {
+    //     console.log("handleData called");
+    // }
+    // useEffect(() => {
+    //     handleCounter();
+    // },[])
+
+    // useEffect(() => {
+    //     handleData();
+    // }, [data,count])
+
     useEffect(() => {
-        handleCounter();
+        console.log("mounting phase only!");
     },[])
 
     useEffect(() => {
-        handleData();
-    }, [data,count])
-    
-    
+        console.log("update phase only!");
+    },[count])
+
+    useEffect(() => {
+        return () => {
+        console.log("unmount phase only!")
+        }
+    },[])
     return (
         <div>
             <h1>Counter Value {count} Data value {data}</h1>

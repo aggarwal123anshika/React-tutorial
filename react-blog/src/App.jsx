@@ -445,16 +445,122 @@ import Counter from "./Counter";
 
 // USE EFFECT HOOK FOR LIFE CYCLE METHODS IN REACT JS
 
+// // function App() {
+// //   const [count,setCount] = useState(0);
+// //   const [data, setData] = useState(0);
+// //   const [display, setDisplay] = useState(true);
+// //   return(
+// //     <div>
+// //       {
+// //         display?  <Counter count={count} data={data}/> : null
+// //       }
+// //       {/* <h1>Handle Props Side Effects with useEffect in component</h1> */}
+     
+// //       <button onClick={() => setCount(count+1) }>Counter</button>
+// //       <button onClick={() => setData(data+1) }>Data</button>
+// //       <button onClick={() => setDisplay(!display)}>Toggle</button>
+// //     </div>
+// //   )
+// // }
+// // export default App;
+
+// // INLINE STYLE IN REACT
+
+// function App() {
+//   const cardStyle = {
+//     width : "400px",
+//     boxShadow : '1px 2px 3px 4px #48444456',
+//     border : '1px solid #1310103b',
+//     margin : '10px'
+//   }
+//   return (
+//     <>
+//       <h1 style={{color : 'red', backgroundColor : 'black', width : "500px"}}>Hello World in inline style elements</h1>
+//       <div style={{display : 'flex'}}>
+//       <div style={cardStyle}>
+//         <img style={{width : '400px'}} src="https://images.unsplash.com/photo-1782226829785-0a7f9568c5ac?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fHw%3D" alt=""></img>
+//         <div style={{padding : '15px'}}>
+//           <h4>Anshika Aggarwal</h4>
+//           <p>Software Developer</p>
+//         </div>
+//         <div style={cardStyle}>
+//         <img style={{width : '400px'}} src="https://images.unsplash.com/photo-1782226829785-0a7f9568c5ac?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fHw%3D" alt=""></img>
+//         <div style={{padding : '15px'}}>
+//           <h4>Anshika Aggarwal</h4>
+//           <p>Software Developer</p>
+//         </div>
+//         <div style={cardStyle}>
+//         <img style={{width : '400px'}} src="https://images.unsplash.com/photo-1782226829785-0a7f9568c5ac?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fHw%3D" alt=""></img>
+//         <div style={{padding : '15px'}}>
+//           <h4>Anshika Aggarwal</h4>
+//           <p>Software Developer</p>
+//         </div>
+//         <div style={cardStyle}>
+//         <img style={{width : '400px'}} src="https://images.unsplash.com/photo-1782226829785-0a7f9568c5ac?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fHw%3D" alt=""></img>
+//         <div style={{padding : '15px'}}>
+//           <h4>Anshika Aggarwal</h4>
+//           <p>Software Developer</p>
+//         </div>
+//       </div>
+//       </div>
+//     </div>
+//   )
+
+// export default App;
+
+
+
 function App() {
-  const [count,setCount] = useState(0);
-  const [data, setData] = useState(0);
-  return(
-    <div>
-      {/* <h1>Handle Props Side Effects with useEffect in component</h1> */}
-      <Counter count={count} data={data}/>
-      <button onClick={() => setCount(count+1) }>Counter</button>
-      <button onClick={() => setData(data+1) }>Data</button>
-    </div>
-  )
+  const cardStyle = {
+    width: "400px",
+    boxShadow: "1px 2px 3px 4px #484445",
+    border: "1px solid #131013",
+    margin: "10px"
+  };
+
+  return (
+    <>
+      <h1
+        style={{
+          color: "red",
+          backgroundColor: "black",
+          width: "500px"
+        }}
+      >
+        Hello World in inline style elements
+      </h1>
+
+      <div style={{ display: "flex" }}>
+
+        <div style={cardStyle}>
+          <img
+            style={{ width: "400px" }}
+            src="https://images.unsplash.com/photo-1782226829785-0a7f9568c5ac?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fHw%3D"
+            alt="Profile"
+          />
+
+          <div style={{ padding: "15px" }}>
+            <h4>Anshika Aggarwal</h4>
+            <p>Software Developer</p>
+          </div>
+        </div>
+
+        <div style={cardStyle}>
+          <img
+            style={{ width: "400px" }}
+            src="https://images.unsplash.com/photo-1782226829785-0a7f9568c5ac?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fHw%3D"
+            alt="Profile"
+          />
+
+          <div style={{ padding: "15px" }}>
+            <h4>Anshika Aggarwal</h4>
+            <p>Software Developer</p>
+          </div>
+        </div>
+
+      </div>
+    </>
+  );
 }
+
 export default App;
