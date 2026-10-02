@@ -511,13 +511,20 @@ import Counter from "./Counter";
 
 
 function App() {
-  const cardStyle = {
+  const [cardStyle, setCardStyle] = useState(
+      {
     width: "400px",
     boxShadow: "1px 2px 3px 4px #484445",
     border: "1px solid #131013",
     margin: "10px"
-  };
-
+      }
+  )
+  const [textColor, setTextColor] = useState('red');
+  const [grid, setGrid] = useState(true)
+  const updateTheme = (bgColor, textColor) => {
+    setCardStyle({...cardStyle, backgroundColor : bgColor})
+    setTextColor(text)
+  }
   return (
     <>
       <h1
@@ -529,8 +536,101 @@ function App() {
       >
         Hello World in inline style elements
       </h1>
+      <button onClick={() => updateTheme('gray', 'green')}>Grey Theme</button>
+      <button onClick={() => updateTheme('white', 'black')}>Default Theme</button>
+        <button onClick={()=> setGrid(!grid)}>Toggle Grid</button>
+      <div style={{ display: grid? 'flex' : 'block' , flexWrap : 'wrap'}}>
 
-      <div style={{ display: "flex" }}>
+        <div style={cardStyle}>
+          <img
+            style={{ width: "400px" }}
+            src="https://images.unsplash.com/photo-1782226829785-0a7f9568c5ac?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fHw%3D"
+            alt="Profile"
+          />
+
+          <div style={{ padding: "15px" ,color : textColor}}>
+            <h4>Anshika Aggarwal</h4>
+            <p>Software Developer</p>
+          </div>
+        </div>
+
+        <div style={cardStyle}>
+          <img
+            style={{ width: "400px" }}
+            src="https://images.unsplash.com/photo-1782226829785-0a7f9568c5ac?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fHw%3D"
+            alt="Profile"
+          />
+
+          <div style={{ padding: "15px" }}>
+            <h4>Anshika Aggarwal</h4>
+            <p>Software Developer</p>
+          </div>
+        </div>
+
+        <div style={cardStyle}>
+          <img
+            style={{ width: "400px" }}
+            src="https://images.unsplash.com/photo-1782226829785-0a7f9568c5ac?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fHw%3D"
+            alt="Profile"
+          />
+
+          <div style={{ padding: "15px" }}>
+            <h4>Anshika Aggarwal</h4>
+            <p>Software Developer</p>
+          </div>
+        </div>
+
+        <div style={cardStyle}>
+          <img
+            style={{ width: "400px" }}
+            src="https://images.unsplash.com/photo-1782226829785-0a7f9568c5ac?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fHw%3D"
+            alt="Profile"
+          />
+
+          <div style={{ padding: "15px" }}>
+            <h4>Anshika Aggarwal</h4>
+            <p>Software Developer</p>
+          </div>
+        </div>
+
+        <div style={cardStyle}>
+          <img
+            style={{ width: "400px" }}
+            src="https://images.unsplash.com/photo-1782226829785-0a7f9568c5ac?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fHw%3D"
+            alt="Profile"
+          />
+
+          <div style={{ padding: "15px" }}>
+            <h4>Anshika Aggarwal</h4>
+            <p>Software Developer</p>
+          </div>
+        </div>
+
+        <div style={cardStyle}>
+          <img
+            style={{ width: "400px" }}
+            src="https://images.unsplash.com/photo-1782226829785-0a7f9568c5ac?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fHw%3D"
+            alt="Profile"
+          />
+
+          <div style={{ padding: "15px" }}>
+            <h4>Anshika Aggarwal</h4>
+            <p>Software Developer</p>
+          </div>
+        </div>
+
+        <div style={cardStyle}>
+          <img
+            style={{ width: "400px" }}
+            src="https://images.unsplash.com/photo-1782226829785-0a7f9568c5ac?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fHw%3D"
+            alt="Profile"
+          />
+
+          <div style={{ padding: "15px" }}>
+            <h4>Anshika Aggarwal</h4>
+            <p>Software Developer</p>
+          </div>
+        </div>
 
         <div style={cardStyle}>
           <img
