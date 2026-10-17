@@ -5,6 +5,7 @@ import { createRoot } from 'react-dom/client'
 // import Counter from './Counter'
 // import Task from './Task';
 import App from './App.jsx'
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import Toogle from './ToggleOrHide'
 
 createRoot(document.getElementById('root')).render(

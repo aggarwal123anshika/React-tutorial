@@ -701,48 +701,66 @@
 // }
 // export default App;
 
-import styled from "styled-components"
-function App() {
-//   const Heading = styled.h2`
-//   color : red;
-//   border : 1px solid black;
-//   border-radius : 10px;
-//   width : 200px;
-//   margin : 20px;
-//   padding : 20px;
-//   display : flex;
+// import styled from "styled-components";
+// import {Button} from 'react-bootstrap';
+// function App() {
+// //   const Heading = styled.h2`
+// //   color : red;
+// //   border : 1px solid black;
+// //   border-radius : 10px;
+// //   width : 200px;
+// //   margin : 20px;
+// //   padding : 20px;
+// //   display : flex;
+// //  `
+//  const Heading = styled.h2({
+//   color : 'red',
+//   border : '1px solid black',
+//   borderRadius : '10px',
+//   width : '200px',
+//   margin : '20px',
+//   padding : '20px'
+//  })
+//  const Button = styled.button`
+//  color : black;
+//  border : 2px solid red;
+//  border-radius : 20px;
+//  width : 150px;
+//  margin : 20px;
+//  padding : 15px;
+//  background-color : #e88d42
 //  `
- const Heading = styled.h2({
-  color : 'red',
-  border : '1px solid black',
-  borderRadius : '10px',
-  width : '200px',
-  margin : '20px',
-  padding : '20px'
- })
- const Button = styled.button`
- color : black;
- border : 2px solid red;
- border-radius : 20px;
- width : 150px;
- margin : 20px;
- padding : 15px;
- background-color : #e88d42
- `
-  return (
-      <>
-        <h1>Styled Component with React js</h1>
-        <Heading>Hello Heading</Heading>
-        <Heading>Hello Heading 2</Heading>
-        <Heading>Hello Heading 3</Heading>
-        <Heading>Hello Heading 4</Heading>
-        <Button>Add To Cart🛒</Button>
-        <Button>Add To Cart🛒</Button>
-        <Button>Add To Cart🛒</Button>
-        <Button>Add To Cart🛒</Button>
+//   return (
+//       <>
+//         <h1>Styled Component with React js</h1>
+//         <Heading>Hello Heading</Heading>
+//         <Heading>Hello Heading 2</Heading>
+//         <Heading>Hello Heading 3</Heading>
+//         <Heading>Hello Heading 4</Heading>
+//         <Button>Add To Cart🛒</Button>
+//         <Button>Add To Cart🛒</Button>
+//         <Button>Add To Cart🛒</Button>
+//         <Button>Add To Cart🛒</Button>
+//       </>
+//   )
+// }
+// export default App;
 
-        
-      </>
+
+// ADD BOOTSTRAP WITH REACT JS
+import {Button} from 'react-bootstrap';
+import { Alert } from "react-bootstrap";
+function App() {
+
+  return (
+    <>
+      <h1>Add Bootstrap in React JS</h1>
+      <Button onClick={() => alert("bootstrap applied")} variant="danger">Okay</Button><br />
+      <Button variant="primary">Okay</Button><br />
+      <Button variant="warning">Okay</Button><br />
+      <Button variant="success">Okay</Button><br />
+      <Alert variant="success">hello, BT installed</Alert>
+    </>
   )
 }
 export default App;
