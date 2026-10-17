@@ -20,6 +20,8 @@
 // // // }
 // // // export default App;
 
+import { useRef } from "react";
+
 // // import { useEffect, useState } from "react";
 // // import Counter from "./Counter";
 // // // import Collegee from "./Collegee";
@@ -768,38 +770,90 @@
 
 // USEREF HOOK
 
-import { useRef } from "react";
+// import { useRef } from "react";
+// function App() {
+//   const inputRef = useRef(null);
+//   const h1Ref = useRef(null);
+//   const inputHandler = () => {
+//     console.log(inputRef);
+//     inputRef.current.focus()
+//     inputRef.current.style.color = 'red'
+//     inputRef.current.password = "enter password"
+//     inputRef.current.value = "123"
+//   }
+//   const toggleHandler = () => {
+//     if (inputRef.current.style.display != 'none') {
+//       inputRef.current.style.display = 'none'
+//     } else {
+//       inputRef.current.style.display = 'inline'
+//     }
+//   }
+//   const h1handler = () => {
+//     h1Ref.current.style.color = "pink"
+//   }
+//   return (
+//     <>
+//       <h1>useRef</h1>
+//       <button onClick={toggleHandler}>Toggle</button>
+//       <input ref={inputRef} type="text" placeholder="Enter user name"/>
+//       <button onClick={inputHandler}>Focus on Input Field</button>
+
+//       <h1 ref={h1Ref}>Anshika Aggarwal</h1>
+//       <button onClick={h1handler}>HaNdler</button>
+//     </>
+
+//   )
+// }
+// export default App;
+
+// UNCONTROLLED COMPONENT
+
 function App() {
-  const inputRef = useRef(null);
-  const h1Ref = useRef(null);
-  const inputHandler = () => {
-    console.log(inputRef);
-    inputRef.current.focus()
-    inputRef.current.style.color = 'red'
-    inputRef.current.password = "enter password"
-    inputRef.current.value = "123"
+
+  const userRef = useRef(null);
+  const passwordRef = useRef(null);
+
+  const handleForm = (event) => {
+    event.preventDefault();
+    const user = document.querySelector("#user").value;
+    console.log(user);
+    const password = document.querySelector("#password").value;
+    console.log(password);
   }
-  const toggleHandler = () => {
-    if (inputRef.current.style.display != 'none') {
-      inputRef.current.style.display = 'none'
-    } else {
-      inputRef.current.style.display = 'inline'
-    }
-  }
-  const h1handler = () => {
-    h1Ref.current.style.color = "pink"
+
+  const handleFormRef = (event) => {
+    event.preventDefault();
+    const user = userRef.current.value
+    const password = passwordRef.current.value
+    console.log("handleFormRef", user, password);
+
   }
   return (
     <>
-      <h1>useRef</h1>
-      <button onClick={toggleHandler}>Toggle</button>
-      <input ref={inputRef} type="text" placeholder="Enter user name"/>
-      <button onClick={inputHandler}>Focus on Input Field</button>
+      <h1>Uncontrolled Component</h1>
+      <form action="" method="post" onSubmit={handleForm}>
+        <input type="text" id="user" placeholder="enter user name"/>
+        <br /><br />
+        <input type="password" id="password" placeholder="enter user password"/>
+        <br /><br />
+        <button>
+          Submit
+        </button>
+      </form>
 
-      <h1 ref={h1Ref}>Anshika Aggarwal</h1>
-      <button onClick={h1handler}>HaNdler</button>
+      <hr />
+
+      <h1>Uncontrolled Component with useRef</h1>
+      <form action="" method="post" onSubmit={handleFormRef}>
+        <input type="text" ref={userRef} id="userRef" placeholder="enter user name"/>
+        <br /><br />
+        <input type="password" ref={passwordRef} id="passwordRef" placeholder="enter user password"/>
+        <br /><br />
+        <button>
+          Submit with Ref
+        </button>
+      </form>
     </>
-
   )
 }
 export default App;
