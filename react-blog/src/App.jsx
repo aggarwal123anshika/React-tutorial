@@ -748,19 +748,58 @@
 
 
 // ADD BOOTSTRAP WITH REACT JS
-import {Button} from 'react-bootstrap';
-import { Alert } from "react-bootstrap";
-function App() {
+// import {Button} from 'react-bootstrap';
+// import { Alert } from "react-bootstrap";
+// function App() {
 
+//   return (
+//     <>
+//       <h1>Add Bootstrap in React JS</h1>
+//       <Button onClick={() => alert("bootstrap applied")} variant="danger">Okay</Button><br />
+//       <Button variant="primary">Okay</Button><br />
+//       <Button variant="warning">Okay</Button><br />
+//       <Button variant="success">Okay</Button><br />
+//       <Alert variant="success">hello, BT installed</Alert>
+//     </>
+//   )
+// }
+// export default App;
+
+
+// USEREF HOOK
+
+import { useRef } from "react";
+function App() {
+  const inputRef = useRef(null);
+  const h1Ref = useRef(null);
+  const inputHandler = () => {
+    console.log(inputRef);
+    inputRef.current.focus()
+    inputRef.current.style.color = 'red'
+    inputRef.current.password = "enter password"
+    inputRef.current.value = "123"
+  }
+  const toggleHandler = () => {
+    if (inputRef.current.style.display != 'none') {
+      inputRef.current.style.display = 'none'
+    } else {
+      inputRef.current.style.display = 'inline'
+    }
+  }
+  const h1handler = () => {
+    h1Ref.current.style.color = "pink"
+  }
   return (
     <>
-      <h1>Add Bootstrap in React JS</h1>
-      <Button onClick={() => alert("bootstrap applied")} variant="danger">Okay</Button><br />
-      <Button variant="primary">Okay</Button><br />
-      <Button variant="warning">Okay</Button><br />
-      <Button variant="success">Okay</Button><br />
-      <Alert variant="success">hello, BT installed</Alert>
+      <h1>useRef</h1>
+      <button onClick={toggleHandler}>Toggle</button>
+      <input ref={inputRef} type="text" placeholder="Enter user name"/>
+      <button onClick={inputHandler}>Focus on Input Field</button>
+
+      <h1 ref={h1Ref}>Anshika Aggarwal</h1>
+      <button onClick={h1handler}>HaNdler</button>
     </>
+
   )
 }
 export default App;
