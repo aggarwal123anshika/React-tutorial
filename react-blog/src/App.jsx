@@ -690,13 +690,59 @@
 
 
 // STYLED COMPONENTS 
-import UserProfile from "./UserProfile";
+// import UserProfile from "./UserProfile";
+// function App() {
+//   return (
+//     <>
+//       <h1>Style Component in CSS</h1>
+//       <UserProfile />
+//     </>
+//   )
+// }
+// export default App;
+
+import styled from "styled-components"
 function App() {
+//   const Heading = styled.h2`
+//   color : red;
+//   border : 1px solid black;
+//   border-radius : 10px;
+//   width : 200px;
+//   margin : 20px;
+//   padding : 20px;
+//   display : flex;
+//  `
+ const Heading = styled.h2({
+  color : 'red',
+  border : '1px solid black',
+  borderRadius : '10px',
+  width : '200px',
+  margin : '20px',
+  padding : '20px'
+ })
+ const Button = styled.button`
+ color : black;
+ border : 2px solid red;
+ border-radius : 20px;
+ width : 150px;
+ margin : 20px;
+ padding : 15px;
+ background-color : #e88d42
+ `
   return (
-    <>
-      <h1>Style Component in CSS</h1>
-      <UserProfile />
-    </>
+      <>
+        <h1>Styled Component with React js</h1>
+        <Heading>Hello Heading</Heading>
+        <Heading>Hello Heading 2</Heading>
+        <Heading>Hello Heading 3</Heading>
+        <Heading>Hello Heading 4</Heading>
+        <Button>Add To Cart🛒</Button>
+        <Button>Add To Cart🛒</Button>
+        <Button>Add To Cart🛒</Button>
+        <Button>Add To Cart🛒</Button>
+
+        
+      </>
   )
 }
 export default App;
