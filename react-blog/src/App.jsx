@@ -862,20 +862,45 @@ import { useRef } from "react";
 
 
 // PASS FUNCTION IN COMPONENT AS PROPS
-import PassFunctionUser from './PassFunctionUser'
+// import PassFunctionUser from './PassFunctionUser'
+// function App() {
+//   const displayName = (name) => {
+//     alert(name)
+//   }
+//   const getUser = ()=> {
+//     alert("get user function called")
+//   }
+//   return (
+//     <>
+//       <h1>Call Parent component function from child component</h1>
+//       <PassFunctionUser displayName={displayName} name="anshu" getUser={getUser}/>
+//       <PassFunctionUser displayName={displayName} name="aggarwal" getUser={getUser}/>
+//       <PassFunctionUser displayName={displayName} name="vanshka" getUser={getUser}/>
+//     </>
+//   )
+// }
+// export default App;
+
+
+
+
+// FORWARD REF IN REACT
+// import { useRef } from"react";
+import UserInput from "./UserInput";
 function App() {
-  const displayName = (name) => {
-    alert(name)
-  }
-  const getUser = ()=> {
-    alert("get user function called")
+  const inputref = useRef(null)
+
+  const updateInput = () => {
+    inputref.current.value = 1000;
+    inputref.current.focus();
+    inputref.current.style.color = "red";
+
   }
   return (
     <>
-      <h1>Call Parent component function from child component</h1>
-      <PassFunctionUser displayName={displayName} name="anshu" getUser={getUser}/>
-      <PassFunctionUser displayName={displayName} name="aggarwal" getUser={getUser}/>
-      <PassFunctionUser displayName={displayName} name="vanshka" getUser={getUser}/>
+      <h1>Forward Ref</h1>
+      <button onClick={updateInput}>Update Input Field</button>
+      <UserInput ref={inputref} />
     </>
   )
 }
