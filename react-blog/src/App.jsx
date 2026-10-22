@@ -808,51 +808,74 @@ import { useRef } from "react";
 
 // UNCONTROLLED COMPONENT
 
+// function App() {
+
+//   const userRef = useRef(null);
+//   const passwordRef = useRef(null);
+
+//   const handleForm = (event) => {
+//     event.preventDefault();
+//     const user = document.querySelector("#user").value;
+//     console.log(user);
+//     const password = document.querySelector("#password").value;
+//     console.log(password);
+//   }
+
+//   const handleFormRef = (event) => {
+//     event.preventDefault();
+//     const user = userRef.current.value
+//     const password = passwordRef.current.value
+//     console.log("handleFormRef", user, password);
+
+//   }
+//   return (
+//     <>
+//       <h1>Uncontrolled Component</h1>
+//       <form action="" method="post" onSubmit={handleForm}>
+//         <input type="text" id="user" placeholder="enter user name"/>
+//         <br /><br />
+//         <input type="password" id="password" placeholder="enter user password"/>
+//         <br /><br />
+//         <button>
+//           Submit
+//         </button>
+//       </form>
+
+//       <hr />
+
+//       <h1>Uncontrolled Component with useRef</h1>
+//       <form action="" method="post" onSubmit={handleFormRef}>
+//         <input type="text" ref={userRef} id="userRef" placeholder="enter user name"/>
+//         <br /><br />
+//         <input type="password" ref={passwordRef} id="passwordRef" placeholder="enter user password"/>
+//         <br /><br />
+//         <button>
+//           Submit with Ref
+//         </button>
+//       </form>
+//     </>
+//   )
+// }
+// export default App;
+
+
+
+
+// PASS FUNCTION IN COMPONENT AS PROPS
+import PassFunctionUser from './PassFunctionUser'
 function App() {
-
-  const userRef = useRef(null);
-  const passwordRef = useRef(null);
-
-  const handleForm = (event) => {
-    event.preventDefault();
-    const user = document.querySelector("#user").value;
-    console.log(user);
-    const password = document.querySelector("#password").value;
-    console.log(password);
+  const displayName = (name) => {
+    alert(name)
   }
-
-  const handleFormRef = (event) => {
-    event.preventDefault();
-    const user = userRef.current.value
-    const password = passwordRef.current.value
-    console.log("handleFormRef", user, password);
-
+  const getUser = ()=> {
+    alert("get user function called")
   }
   return (
     <>
-      <h1>Uncontrolled Component</h1>
-      <form action="" method="post" onSubmit={handleForm}>
-        <input type="text" id="user" placeholder="enter user name"/>
-        <br /><br />
-        <input type="password" id="password" placeholder="enter user password"/>
-        <br /><br />
-        <button>
-          Submit
-        </button>
-      </form>
-
-      <hr />
-
-      <h1>Uncontrolled Component with useRef</h1>
-      <form action="" method="post" onSubmit={handleFormRef}>
-        <input type="text" ref={userRef} id="userRef" placeholder="enter user name"/>
-        <br /><br />
-        <input type="password" ref={passwordRef} id="passwordRef" placeholder="enter user password"/>
-        <br /><br />
-        <button>
-          Submit with Ref
-        </button>
-      </form>
+      <h1>Call Parent component function from child component</h1>
+      <PassFunctionUser displayName={displayName} name="anshu" getUser={getUser}/>
+      <PassFunctionUser displayName={displayName} name="aggarwal" getUser={getUser}/>
+      <PassFunctionUser displayName={displayName} name="vanshka" getUser={getUser}/>
     </>
   )
 }
