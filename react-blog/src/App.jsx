@@ -886,22 +886,54 @@ import { useRef } from "react";
 
 // FORWARD REF IN REACT
 // import { useRef } from"react";
-import UserInput from "./UserInput";
+// import UserInput from "./UserInput";
+// function App() {
+//   const inputref = useRef(null)
+
+//   const updateInput = () => {
+//     inputref.current.value = 1000;
+//     inputref.current.focus();
+//     inputref.current.style.color = "red";
+
+//   }
+//   return (
+//     <>
+//       <h1>Forward Ref</h1>
+//       <button onClick={updateInput}>Update Input Field</button>
+//       <UserInput ref={inputref} />
+//     </>
+//   )
+// }
+// export default App;
+
+
+// USEFORMSTATUS HOOK IN REACT
+import {useFormStatus} from 'react-dom';
 function App() {
-  const inputref = useRef(null)
-
-  const updateInput = () => {
-    inputref.current.value = 1000;
-    inputref.current.focus();
-    inputref.current.style.color = "red";
-
+  const handleSubmit = async () => {
+    await new Promise(res => setTimeout(res, 5000));
+    console.log("submit")
+  }
+  function CustomerForm() {
+    const {pending} = useFormStatus();
+    console.log(pending);
+    return (
+      <div>
+        <input type="text" placeholder="Enter Your Name"/>
+          <br /><br />
+          <input type="password" placeholder="Enter Your Password"/>
+          <br /><br />
+          <button disabled={pending}>{pending?'Submitting...':'Submit'}</button>
+      </div>
+    )
   }
   return (
-    <>
-      <h1>Forward Ref</h1>
-      <button onClick={updateInput}>Update Input Field</button>
-      <UserInput ref={inputref} />
-    </>
+    <div>
+      <h1>useFormStatus Hook in React js 19</h1>
+      <form action={handleSubmit}>
+         <CustomerForm />
+      </form>
+    </div>
   )
 }
-export default App;
+export default App; 
