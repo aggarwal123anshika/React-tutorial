@@ -21,6 +21,8 @@
 // // // export default App;
 
 import { useRef, useState, useTransition } from "react";
+import AddUser from "./AddUser";
+import DisplayUser from "./DisplayUser";
 
 // // import { useEffect, useState } from "react";
 // // import Counter from "./Counter";
@@ -1003,30 +1005,45 @@ import { useRef, useState, useTransition } from "react";
 
 // DERIVED STATE IN REACT JS
 
+// function App() {
+//   const [users, setUsers] = useState([]);
+//   const [user, setUser] = useState('');
+//   const handleAddUsers = () => {
+//     setUsers([...users, user])
+//   }
+//   const total =users.length
+//   const last = users[users.length-1]
+//   const unique = [...new Set(users)].length
+//   return (
+//     <>
+//       <div>
+//         <h2>Total User : {total}</h2>
+//         <h2>Last User : {last}</h2>
+//         <h2>Unique Total User : {unique}</h2>
+//         <input type="text" onChange={(event) => setUser(event.target.value)} placeholder="add new user" />
+//         <button onClick={handleAddUsers}>Add User</button>
+//         {
+//           users.map((item, index) => (
+//             <h4 key={index}>{item}</h4>
+//           ))
+//         }
+//       </div>
+//     </>
+//   )
+// }
+// export default App;
+
+
+
+// LIFTING STATE UP IN REACT JS
+
 function App() {
-  const [users, setUsers] = useState([]);
-  const [user, setUser] = useState('');
-  const handleAddUsers = () => {
-    setUsers([...users, user])
-  }
-  const total =users.length
-  const last = users[users.length-1]
-  const unique = [...new Set(users)].length
+  const [user, setUser] = useState('')
   return (
-    <>
-      <div>
-        <h2>Total User : {total}</h2>
-        <h2>Last User : {last}</h2>
-        <h2>Unique Total User : {unique}</h2>
-        <input type="text" onChange={(event) => setUser(event.target.value)} placeholder="add new user" />
-        <button onClick={handleAddUsers}>Add User</button>
-        {
-          users.map((item, index) => (
-            <h4 key={index}>{item}</h4>
-          ))
-        }
-      </div>
-    </>
+    <div>
+      <AddUser setUser={setUser}/>
+      <DisplayUser user={user}/>
+    </div>
   )
 }
 export default App;
