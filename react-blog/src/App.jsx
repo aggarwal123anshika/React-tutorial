@@ -943,24 +943,57 @@ import { useRef, useState, useTransition } from "react";
 
 // USETRANSITION HOOK 
 // import { useState } from "react";
-function App() {
-  const [pending, startTransition] = useTransition();
-  const handleButton = async() => {
-    startTransition(async() => {
-      await new Promise(res => setTimeout(res,2000));
-    })
-  } 
+// function App() {
+//   const [pending, startTransition] = useTransition();
+//   const handleButton = async() => {
+//     startTransition(async() => {
+//       await new Promise(res => setTimeout(res,2000));
+//     })
+//   } 
+//   return (
+//     <>
+//       <h1>useTransition Hook in React JS 19</h1>
+//       {
+//         pending?
+//         <img style={{width:"100px"}} src="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Loading_icon.gif/330px-Loading_icon.gif?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="" />
+//         :null
+//       }
+//       <button disabled={pending} onClick={handleButton}>Click</button>
+//     </>
+//     // yha pr disabled function m pending state by default false rhti hai
+//   )
+// }
+// export default App;
+
+
+
+// KEEP YOUR COMPONENTS IN REACT JS
+// let guest = 0;
+function App(){
   return (
     <>
-      <h1>useTransition Hook in React JS 19</h1>
-      {
-        pending?
-        <img style={{width:"100px"}} src="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Loading_icon.gif/330px-Loading_icon.gif?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="" />
-        :null
-      }
-      <button disabled={pending} onClick={handleButton}>Click</button>
+      <h1>Keeping Components Pure</h1>
+      <Counter count={1} />
+      <Counter count={2} />
+      <Counter count={3} />
+      <Counter count={4} />
+      <Cup guest={1}/>
+      <Cup guest={2}/>
+      <Cup guest={3}/>
+      <Cup guest={4}/>
     </>
-    // yha pr disabled function m pending state by default false rhti hai
+  )
+}
+const Counter = ({count}) => {
+  return (
+    <h1>Counter {count} </h1>
+  )
+}
+
+
+const Cup = ({guest}) => {
+  return (
+    <h1>We have {guest} guest and we have to make {guest} cup of tea</h1>
   )
 }
 export default App;
