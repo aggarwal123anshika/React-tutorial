@@ -20,7 +20,7 @@
 // // // }
 // // // export default App;
 
-import { useRef } from "react";
+import { useRef, useState, useTransition } from "react";
 
 // // import { useEffect, useState } from "react";
 // // import Counter from "./Counter";
@@ -908,32 +908,59 @@ import { useRef } from "react";
 
 
 // USEFORMSTATUS HOOK IN REACT
-import {useFormStatus} from 'react-dom';
+// import {useFormStatus} from 'react-dom';
+// function App() {
+//   const handleSubmit = async () => {
+//     await new Promise(res => setTimeout(res, 5000));
+//     console.log("submit")
+//   }
+//   function CustomerForm() {
+//     const {pending} = useFormStatus();
+//     console.log(pending);
+//     return (
+//       <div>
+//         <input type="text" placeholder="Enter Your Name"/>
+//           <br /><br />
+//           <input type="password" placeholder="Enter Your Password"/>
+//           <br /><br />
+//           <button disabled={pending}>{pending?'Submitting...':'Submit'}</button>
+//       </div>
+//     )
+//   }
+//   return (
+//     <div>
+//       <h1>useFormStatus Hook in React js 19</h1>
+//       <form action={handleSubmit}>
+//          <CustomerForm />
+//       </form>
+//     </div>
+//   )
+// }
+// export default App; 
+
+
+
+
+// USETRANSITION HOOK 
+// import { useState } from "react";
 function App() {
-  const handleSubmit = async () => {
-    await new Promise(res => setTimeout(res, 5000));
-    console.log("submit")
-  }
-  function CustomerForm() {
-    const {pending} = useFormStatus();
-    console.log(pending);
-    return (
-      <div>
-        <input type="text" placeholder="Enter Your Name"/>
-          <br /><br />
-          <input type="password" placeholder="Enter Your Password"/>
-          <br /><br />
-          <button disabled={pending}>{pending?'Submitting...':'Submit'}</button>
-      </div>
-    )
-  }
+  const [pending, startTransition] = useTransition();
+  const handleButton = async() => {
+    startTransition(async() => {
+      await new Promise(res => setTimeout(res,2000));
+    })
+  } 
   return (
-    <div>
-      <h1>useFormStatus Hook in React js 19</h1>
-      <form action={handleSubmit}>
-         <CustomerForm />
-      </form>
-    </div>
+    <>
+      <h1>useTransition Hook in React JS 19</h1>
+      {
+        pending?
+        <img style={{width:"100px"}} src="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Loading_icon.gif/330px-Loading_icon.gif?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="" />
+        :null
+      }
+      <button disabled={pending} onClick={handleButton}>Click</button>
+    </>
+    // yha pr disabled function m pending state by default false rhti hai
   )
 }
-export default App; 
+export default App;
