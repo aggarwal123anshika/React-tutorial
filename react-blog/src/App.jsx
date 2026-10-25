@@ -1051,32 +1051,88 @@ import DisplayUser from "./DisplayUser";
 
 // UPDATING OBJECTS IN STATE
 
-export default function App() {
-  const [data, setData] = useState({
-    name : 'anshu',
-    address : {
-      city : 'Ghaziabad',
-      country : 'India'
-    }
-  })
+// export default function App() {
+//   const [data, setData] = useState({
+//     name : 'anshu',
+//     address : {
+//       city : 'Ghaziabad',
+//       country : 'India'
+//     }
+//   })
 
-  const handleName = (val) => {
-    data.name = val
-    setData({...data})
-  }
-  const handleCity = (city) => {
-    data.address.city = city
-    setData({...data,address : {...data.address,city}})
+//   const handleName = (val) => {
+//     data.name = val
+//     setData({...data})
+//   }
+//   const handleCity = (city) => {
+//     data.address.city = city
+//     setData({...data,address : {...data.address,city}})
     
+//   }
+//   return (
+//     <div>
+//       <h1>Updating Objects in State</h1>
+//       <input type="text" placeholder="Update Name" onChange={(event) => handleName(event.target.value)} />
+//       <input type="text" placeholder="Update City" onChange={(event) => handleCity(event.target.value)} />
+//       <h2>Name : {data.name}</h2>
+//       <h2>City : {data.address.city}</h2>
+//       <h2>Country : {data.address.country}</h2>
+//     </div>
+//   )
+// }
+
+
+
+// UPDATING ARRAY IN STATE
+
+export default function App() {
+  const [data, setData] = useState([
+    'anshi','vanshi','pokkiee','murli'
+  ])
+  const [dataDetails, setDataDetails] = useState([
+    {
+      name : 'anshika',
+      age : '20'
+    },
+    {
+      name : 'vanshika',
+      age : '22'
+    },
+    {
+      name : 'anshi',
+      age : '23'
+    },
+  ])
+  const handleUser = (name) => {
+    data[data.length-1] = name;
+    console.log(data);
+    setData([...data]);
+  }
+  const handleAge = (age) => {
+    dataDetails[dataDetails.length-1].age = age;
+    console.log(dataDetails);
+    setDataDetails([...dataDetails]);
   }
   return (
     <div>
-      <h1>Updating Objects in State</h1>
-      <input type="text" placeholder="Update Name" onChange={(event) => handleName(event.target.value)} />
-      <input type="text" placeholder="Update City" onChange={(event) => handleCity(event.target.value)} />
-      <h2>Name : {data.name}</h2>
-      <h2>City : {data.address.city}</h2>
-      <h2>Country : {data.address.country}</h2>
+      <h1>Updating Array in State</h1>
+      <input type="text" placeholder="Enter last user name"
+      onChange={(e) => handleUser(e.target.value)}
+      />
+      {
+        data.map((item, index) => (
+          <h3 key = {index}>{item}</h3>
+        ))
+      }
+      <hr />
+      <input type="text" placeholder="Enter last user age"
+      onChange={(e) => handleAge(e.target.value)}
+      />
+      {
+        dataDetails.map((item, index) => (
+          <h4 key= {index}>{item.name},{item.age}</h4>
+        ))
+      }
     </div>
   )
 }
