@@ -20,7 +20,7 @@
 // // // }
 // // // export default App;
 
-import { useRef, useState, useTransition } from "react";
+import { useActionState, useRef, useState, useTransition } from "react";
 import AddUser from "./AddUser";
 import DisplayUser from "./DisplayUser";
 
@@ -1085,54 +1085,95 @@ import DisplayUser from "./DisplayUser";
 
 // UPDATING ARRAY IN STATE
 
+// export default function App() {
+//   const [data, setData] = useState([
+//     'anshi','vanshi','pokkiee','murli'
+//   ])
+//   const [dataDetails, setDataDetails] = useState([
+//     {
+//       name : 'anshika',
+//       age : '20'
+//     },
+//     {
+//       name : 'vanshika',
+//       age : '22'
+//     },
+//     {
+//       name : 'anshi',
+//       age : '23'
+//     },
+//   ])
+//   const handleUser = (name) => {
+//     data[data.length-1] = name;
+//     console.log(data);
+//     setData([...data]);
+//   }
+//   const handleAge = (age) => {
+//     dataDetails[dataDetails.length-1].age = age;
+//     console.log(dataDetails);
+//     setDataDetails([...dataDetails]);
+//   }
+//   return (
+//     <div>
+//       <h1>Updating Array in State</h1>
+//       <input type="text" placeholder="Enter last user name"
+//       onChange={(e) => handleUser(e.target.value)}
+//       />
+//       {
+//         data.map((item, index) => (
+//           <h3 key = {index}>{item}</h3>
+//         ))
+//       }
+//       <hr />
+//       <input type="text" placeholder="Enter last user age"
+//       onChange={(e) => handleAge(e.target.value)}
+//       />
+//       {
+//         dataDetails.map((item, index) => (
+//           <h4 key= {index}>{item.name},{item.age}</h4>
+//         ))
+//       }
+//     </div>
+//   )
+// }
+
+
+// USEACTIONSTATE HOOK
+// import { useActionState } from "react";
 export default function App() {
-  const [data, setData] = useState([
-    'anshi','vanshi','pokkiee','murli'
-  ])
-  const [dataDetails, setDataDetails] = useState([
-    {
-      name : 'anshika',
-      age : '20'
-    },
-    {
-      name : 'vanshika',
-      age : '22'
-    },
-    {
-      name : 'anshi',
-      age : '23'
-    },
-  ])
-  const handleUser = (name) => {
-    data[data.length-1] = name;
-    console.log(data);
-    setData([...data]);
+  const handleSubmit = async(previousData, formData) => {
+    let name = formData.get('name');
+    let password = formData.get('password');
+    
+    await new Promise(res => setTimeout(res,2000))
+    // console.log("handleSubmit called", name, password);
+    if(name && password) {
+      return { message : 'Data Submitted', name, password }
+    } else {
+      return { error : 'Failed to Submit. Enter Proper Data', name, password }
+    }
   }
-  const handleAge = (age) => {
-    dataDetails[dataDetails.length-1].age = age;
-    console.log(dataDetails);
-    setDataDetails([...dataDetails]);
-  }
+  const [data,action,pending] = useActionState(handleSubmit,undefined);
+  console.log(data);
   return (
     <div>
-      <h1>Updating Array in State</h1>
-      <input type="text" placeholder="Enter last user name"
-      onChange={(e) => handleUser(e.target.value)}
-      />
-      {
-        data.map((item, index) => (
-          <h3 key = {index}>{item}</h3>
-        ))
-      }
-      <hr />
-      <input type="text" placeholder="Enter last user age"
-      onChange={(e) => handleAge(e.target.value)}
-      />
-      {
-        dataDetails.map((item, index) => (
-          <h4 key= {index}>{item.name},{item.age}</h4>
-        ))
-      }
+      <h1>useActionState Hook in React Js</h1>
+      <form action={action}>
+        <input defaultValue={data?.name} type="text" placeholder="Enter Name" name="name"/>
+        <br /> <br />
+        <input defaultValue={data?.password} type="password" placeholder="Enter Password" name="password"/>
+        <br /> <br />
+        <button disabled={pending}>Submit Data</button>
+        <br /><br />
+        {
+          data?.error && <span style={{color : 'red'}}>{data?.error}</span>
+        }
+        {
+          data?.message && <span style={{color : 'green'}}>{data?.message}</span>
+        }
+      </form>
+      <h3>Name : {data?.name}</h3>
+      <h3>Password : {data?.password}</h3>
     </div>
   )
 }
