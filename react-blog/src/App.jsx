@@ -1037,13 +1037,46 @@ import DisplayUser from "./DisplayUser";
 
 // LIFTING STATE UP IN REACT JS
 
-function App() {
-  const [user, setUser] = useState('')
+// function App() {
+//   const [user, setUser] = useState('')
+//   return (
+//     <div>
+//       <AddUser setUser={setUser}/>
+//       <DisplayUser user={user}/>
+//     </div>
+//   )
+// }
+// export default App;
+
+
+// UPDATING OBJECTS IN STATE
+
+export default function App() {
+  const [data, setData] = useState({
+    name : 'anshu',
+    address : {
+      city : 'Ghaziabad',
+      country : 'India'
+    }
+  })
+
+  const handleName = (val) => {
+    data.name = val
+    setData({...data})
+  }
+  const handleCity = (city) => {
+    data.address.city = city
+    setData({...data,address : {...data.address,city}})
+    
+  }
   return (
     <div>
-      <AddUser setUser={setUser}/>
-      <DisplayUser user={user}/>
+      <h1>Updating Objects in State</h1>
+      <input type="text" placeholder="Update Name" onChange={(event) => handleName(event.target.value)} />
+      <input type="text" placeholder="Update City" onChange={(event) => handleCity(event.target.value)} />
+      <h2>Name : {data.name}</h2>
+      <h2>City : {data.address.city}</h2>
+      <h2>Country : {data.address.country}</h2>
     </div>
   )
 }
-export default App;
